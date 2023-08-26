@@ -16,8 +16,12 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 RUN mkdir /coffeeproject
 COPY .  /coffeeproject
+RUN mkdir /static  
 
 WORKDIR /coffeeproject
 
 RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt 
-CMD python manage.py runserver 0.0.0.0:8000  
+#CMD python manage.py runserver 0.0.0.0:8000  
+RUN python manage.py collectstatic 
+
+CMD  uwsgi --ini  uwsgi.ini
