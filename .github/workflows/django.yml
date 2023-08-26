@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
@@ -31,6 +32,7 @@ jobs:
         registry: registry.cn-shanghai.aliyuncs.com
         username: ${{ secrets.ALIYUN_NAME }}
         password: ${{ secrets.ALIYUN_PASSWORD }}
+
     #构建后上传至阿里云，
     - name: Build and push
       uses: docker/build-push-action@v4
@@ -38,8 +40,8 @@ jobs:
         context: .
         push: true
         tags: registry.cn-shanghai.aliyuncs.com/pmrdjango/coffeestore:0.1
-        build-args: |  
-        	DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
+        build-args: |
+          DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
 
     - name: ssh deploy
       # You may pin to the exact commit or the version.
