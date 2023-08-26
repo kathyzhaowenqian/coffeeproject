@@ -48,7 +48,6 @@ jobs:
       # uses: easingthemes/ssh-deploy@3884c8554ff45c0fd37d3f12a76288d06ce7a2ff
       uses: easingthemes/ssh-deploy@v4.1.8
       with:
-        # Private key part of an SSH key pair,ssh 连接密钥 
         SSH_PRIVATE_KEY: ${{ secrets.ACCESS_KEY_SECRET }}
         # Remote host 服务器ip
         REMOTE_HOST: ${{ secrets.ECS_CLUSTER_ID }}
@@ -60,7 +59,7 @@ jobs:
         
         #跑一些脚本
         SCRIPT_AFTER: |
-            
+
           docker compose -f /opt/coffeestoreproject/docker-compose.yml down
           docker rm -f workflow1
           docker rmi registry.cn-shanghai.aliyuncs.com/pmrdjango/coffeestore:0.1
