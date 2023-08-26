@@ -1,0 +1,621 @@
+
+
+<head>
+    <!-- 引入ELEMENT -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.6.3/lib/theme-chalk/index.css"/>
+    
+    
+    <!-- 引入字体过度样式 -->
+    <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+    <!-- 引入轮播图 -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">  
+   
+    <title>大众点评全国重点城市咖啡商户分析</title>
+    
+    
+    <!-- 通过CSS调整字体大小
+    <style type="text/css">
+    .WORDSTYLE {
+    			font-size: 18px;
+    			color: black;
+    			}
+    </style>
+        
+       
+        
+        
+    <style>
+        .swiper {
+        width: 1000px;
+        height: 300px;
+        }  
+    </style>
+    --> 
+     <style>
+     .list1 li{
+     list-style-position:outside;
+          
+     }
+    </style> 
+    
+     <style>
+      .swiper-slide{
+      width:auto;/*根据内容调整宽度*/
+     }
+    </style>
+
+    <!-- ELEMENT页面布局模板 -->
+    <style>
+      .el-header, .el-footer {
+        background-color:#FFDAB9;
+        color: #333;
+        text-align: center;
+        line-height: 20px;
+      }
+      
+      .el-aside {
+        background-color:#D3DCE6;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+      }
+      
+      .el-main {
+        background-color:#FFFAFA;
+        color: #333;
+        text-align: left;
+        line-height: 30px;
+      }
+      
+      body > .el-container {
+        margin-bottom: 20px;
+      }
+      
+      .el-container:nth-child(5) .el-aside,
+      .el-container:nth-child(6) .el-aside {
+        line-height: 260px;
+      }
+      
+      .el-container:nth-child(7) .el-aside {
+        line-height: 320px;
+      }
+    </style>
+
+<!-- ELEMENT具体内容布局模板 -->
+    <style>
+      .el-row {
+        margin-bottom: 20px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .el-col {
+        border-radius: 4px;
+      }
+      .bg-purple-dark {
+        background: #FFFAFA
+      }
+      .bg-purple {
+        background: #d3dce6;
+      }
+      .bg-purple-light {
+        background: #e5e9f2;
+      }
+      .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+      }
+      .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+      }
+    </style>
+   
+   
+   
+</head>
+
+
+
+
+<body>
+    <!-- 根据下方script启动VUE之后，相关的代码都要在id=app的标签中写-->
+    
+  <div id="app">
+      
+    <el-container>
+    
+      <el-header height="150px">
+      <h1 style="margin-top:30px; font-size: 36px">大众点评全国重点城市咖啡商户分析</h1>
+      <br> <!-- 按钮样式 弹窗效果 显示文字-->
+            <el-button @click="visible = true" type="warning" round size="medium" icon="el-icon-info" plain >by Kathy赵文茜</el-button>
+            <el-dialog :visible.sync="visible" title="Hello 我是Kathy赵文茜">
+                  <p class="animate__animated animate__backInDown" style="margin-top:1px">我从2021年3月开始自学编程，先后学习了Python、SQL、Django、HTML、CSS、JavaScript、Jquery、Pandas、Pyecharts等语言/框架/工具库。我相信用技术赋能、让数据说话一定能辅助和推动业务发展。</p>
+            </el-dialog>
+      
+      </el-header>
+      
+      
+      <el-main>       
+          <el-row>
+          <!-- 插入轮播图 -->
+          <div class="swiper">
+              <div class="swiper-wrapper">
+              
+                <div class="swiper-slide">
+                    <img src="/static/img/11.jpg"/>
+                </div>
+              
+                <div class="swiper-slide">
+                    <img src="/static/img/6.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">	
+                    <img src="/static/img/7.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">	
+                    <img src="/static/img/9.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="/static/img/5.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="/static/img/10.jpg"/>
+                </div>
+                
+                 <div class="swiper-slide">
+                    <img src="/static/img/8.jpg"/>
+                </div>
+                
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+                <!-- 如果需要滚动条 
+                 <div class="swiper-scrollbar"></div>-->
+          </div>
+           </el-row>            
+         
+      
+          <el-row>
+             <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">                
+                    <span style="font-size: 20px; font-weight: bold">前言：</span>
+                    <br><br>
+                    本报告以展示编程技术对于市场调研及业务分析的辅助作用为主，图表配套文字仅对数据作简单阐述。所有调研成果的核心依据为数据，通过编程（爬虫技术）可以获取完整的原始数据，对于业务而言具有很高价值。获取数据之后，还可通过编程语言批量清洗、分析数据，并编译成可视化图表，以供后期分析报告的撰写，并同时提高工作效率。本报告所运用到的编程语言、工具库等技术如下： 
+                     <br><br>   
+                    编程语言：
+                        <el-button @click="python1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Python</el-button>
+                        <el-dialog :visible.sync="python1" title="Python（计算机编程语言）">
+                                <p class="animate__animated animate__backInDown" >Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆 于1990 年代初设计，作为一门叫做ABC语言的替代品。
+                                Python提供了高效的高级数据结构，还能简单有效地面向对象编程。
+                                <br><br>Python语法和动态类型，以及解释型语言的本质，使它成为多数平台上写脚本和快速开发应用的编程语言， 
+                                随着版本的不断更新和语言新功能的添加，逐渐被用于独立的、大型项目的开发。 
+                                Python解释器易于扩展，可以使用C语言或C++（或者其他可以通过C调用的语言）扩展新的功能和数据类型。 
+                                Python 也可用于可定制化软件中的扩展程序语言。<br><br>Python丰富的标准库，提供了适用于各个主要系统平台的源码或机器码。 
+                                2021年10月，语言流行指数的编译器Tiobe将Python加冕为最受欢迎的编程语言，20年来首次将其置于Java、C和JavaScript之上。
+                                </p>                               
+                        </el-dialog> 
+                                                
+                        
+                        
+                        <el-button @click="HTML1 = true" type="warning" round size="mini" icon="el-icon-info" plain>HTML</el-button>
+                        <el-dialog :visible.sync="HTML1" title="HMTL">
+                                <p class="animate__animated animate__backInDown" >
+                                HTML的全称为超文本标记语言，是一种标记语言。它包括一系列标签，通过这些标签可以将网络上的文档格式统一，使分散的Internet资源连接为一个逻辑整体。
+                                HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字，图形、动画、声音、表格、链接等。
+                                </p>
+                        </el-dialog> 
+                        
+                       
+                        <el-button @click="CSS1 = true" type="warning" round size="mini" icon="el-icon-info" plain>CSS</el-button>
+                        <el-dialog :visible.sync="CSS1" title="CSS(层叠样式表)">
+                                <p class="animate__animated animate__backInDown" >
+                                层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+                                </p>
+                        </el-dialog> 
+                        
+                        <el-button @click="JavaScript1 = true" type="warning" round size="mini" icon="el-icon-info" plain>JavaScript</el-button>
+                        <el-dialog :visible.sync="JavaScript1" title="JavaScript">
+                                <p class="animate__animated animate__backInDown" >
+                                JavaScript（简称“JS”） 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web页面的脚本语言而出名，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式、声明式、函数式编程范式。
+                                </p>
+                        </el-dialog> 
+                                                                       
+                    <br>
+                   
+                   
+                    Web开发框架：
+                        <el-button @click="django1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Django</el-button>
+                        <el-dialog :visible.sync="django1" title="Django（Python Web 框架）">
+                               <p class="animate__animated animate__backInDown" >
+                                Django是一个开放源代码的Web应用框架，由Python写成。采用了MTV的框架模式，即模型M，视图V和模版T。
+                                它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。并于2005年7月在BSD许可证下发布。
+                               </p>
+                        </el-dialog>
+
+                        <el-button @click="vue1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Vue</el-button>
+                        <el-dialog :visible.sync="vue1" title="Vue">
+                               <p class="animate__animated animate__backInDown" >
+                               Vue是一套用于构建用户界面的渐进式JavaScript框架，作为目前最流行的前端框架之一，是许多前端开发工程师的不二选择。与传统JS和JQuery框架不同，Vue的渐进式框架表示开发者可以由简单组件写起，渐渐搭建出一个复杂的前端平台。
+                               </p>
+                        </el-dialog>                                                        
+                    <br>
+                    
+                    
+                    数据获取方式：
+                        <el-button @click="spider1 = true" type="warning" round size="mini" icon="el-icon-info" plain>网络爬虫</el-button>
+                        <el-dialog :visible.sync="spider1" title="网络爬虫">
+                               <p class="animate__animated animate__backInDown" >
+                               网络爬虫是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。
+                               </p>
+                        </el-dialog>
+                    
+                    
+                    <br>
+                    
+                    数据分析调用工具库：
+                        <el-button @click="Pandas1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Pandas</el-button>
+                        <el-dialog :visible.sync="Pandas1" title="Pandas">
+                              <p class="animate__animated animate__backInDown" >
+                              Pandas 是基于NumPy 的一种工具，该工具是为解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法。你很快就会发现，它是使Python成为强大而高效的数据分析环境的重要因素之一。
+                              </p>
+                        </el-dialog>
+                    
+                                        
+                    <br>
+                    数据可视化调用工具库：
+                        <el-button @click="Pyecharts1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Pyecharts</el-button>
+                        <el-dialog :visible.sync="Pyecharts1" title="Pyecharts">
+                              <p class="animate__animated animate__backInDown" >
+                                Echarts是一个由百度开源的数据可视化，凭借着良好的交互性，精巧的图表设计，得到了众多开发者的认可。
+                                而 Python 是一门富有表达力的语言，很适合用于数据处理。当数据分析遇上数据可视化时，Pyecharts 诞生了。
+                              </p>
+                        </el-dialog>                    
+                    
+                    <br><br>
+                    生成此类报告的工作可拆解为：1. 获取原始数据； 2. 数据整合、清洗和分析； 3. 可视化图表制作； 4. 分析报告撰写； 5. 网页开发。 
+                    在专业科技公司通常由多部门团队协作。由于此次是我第一个实战项目，总耗时超过100个小时，其中约50个小时用在数据获取代码的编写及数据获取过程中；
+                    约55个小时用在数据分析和可视化图表代码的编写中；约20个小时用在Web开发框架代码编写中；约15个小时用在报告文字撰写和整体排版中。
+                    由于本报告图表均通过Python语言编写，在视觉呈现上没有做过多修饰，后期可调用专业可视化工具提升视觉效果。
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">数据获取逻辑：</span>
+                    <br> 
+                    <ul class="list1">
+                    <li>本报告引用数据均通过爬虫技术从大众点评获取，搜索关键字为“咖啡”（模糊查询），选取全国19个重点城市：上海、北京、广州、成都、深圳、杭州、苏州、重庆、南京、武汉、青岛、天津、宁波、无锡、厦门、昆明、合肥、郑州、济南。
+                    数据信息包括：城市、门店名称、消费均价、星级评分、点评数、地区、推荐菜品等等。通过“咖啡”关键字获取的门店可为咖啡厅，或者推荐菜品中包含“咖啡”的门店。
+                    </li>
+                    <li>为尽可能保留原始数据，获取到的除咖啡厅以外的门店，如：茶饮、快餐、餐厅等，均做保留。相比大众点评上的全部门店信息，本数据完整性为95%以上。
+                    从业务层面，包含“咖啡”关键字的非咖啡厅门店会给分析报告的精确度带来一定影响，如高端餐厅会影响均价，连锁快餐厅会影响门店品牌排行。
+                    </li>
+                    <li>若作为公司项目，搜索关键字、数据过滤、以及后期的图表类型的选择和数据维度筛选，都需要做进一步细化、探讨。
+                    </li>
+                    <li>部分原始数据示例：</li> 
+                    </ul>
+                    <img src="/static/img/图片1.png" width="1100px"/>
+                    <br><br><br>
+                    
+                    
+                    <span style="font-size: 20px; font-weight: bold">可视化图表及数据分析——全国维度：</span>
+                    <br>
+                                   
+            </div></el-col>      
+            
+         </el-row>
+                       
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/countryanalysis" width="100%" height="600"></iframe>
+            </div>
+            
+        <el-row> 
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">  
+                    <i><b>图1：全国维度图表集合<br>
+                    （可切换标签查看不同维度分析与排行，滚动鼠标或拖拽滚动条可放大数据信息）
+                    </b></i><br><br>
+                    
+                    <span style="font-weight: bold">各城市门店数地图/各城市门店数排行图：</span>
+                    <ul class="list1">
+                    <li> 
+                    从全国角度，19个重点城市门店总数为60975家。其中，总门店数排名前三位的城市分别为：上海9836家、北京6740家，广州5334家；单店门店数排名前三位的分别为：上海4589家，成都3350家，北京3329家。相较于一线城市，经济快速发展的新一线和二线城市依然有很大的增长空间。                        
+                    </li>
+                    </ul>
+                    
+                    <span style="font-weight: bold">各城市均价/评论数/评分图：</span>
+                    <ul class="list1">
+                    <li> 
+                    19个城市的均价集中在35元至55元之间，北京均价最高，达到了54.4元。其次为上海46.7元、青岛46.5元。
+                    </li>
+                    <li> 
+                    上海作为门店数排名第一的城市，评论数达到了263.9万条。门店数排名第二的北京评论数达到了181.8万条。分别为第三名广州（77.1万条）的三倍、两倍以上。
+                    </li>
+                    <li> 
+                    所有城市的星级评分都在3.7分以上，其中北京、天津和南京的均分最高，均达到4分。
+                    </li>
+                    </ul>
+                    
+                    <span style="font-weight: bold">连锁品牌门店数排行图：</span>
+                    <ul class="list1">
+                    <li> 
+                    随着连锁店瑞幸咖啡迅速扩张，其门店数位居第一达到3648家，排名第二的星巴克达到3163家（另含星巴克臻选352家）。排除非咖啡厅门店，位居前列的还有NOWWA挪瓦咖啡952家，Tims咖啡423家和Manner Coffee 416家。
+                    </li>
+                    </ul>
+                    
+                    <span style="font-weight: bold">连锁品牌均价/评论数/评分图：</span>
+                    <ul class="list1">
+                    <li> 
+                    从门店数排行前列的品牌连锁中看出，各品牌均价差异较大，多数在15元至50元之间。而上岛咖啡、岸香咖啡、两岸咖啡和栖巢咖啡的均价都达到75元以上。
+                    </li>
+                    <li>
+                    排除非咖啡厅门店，老牌连锁星巴克的评价数最高，达到76.7万条（另含星巴克臻选20.1万条），第二名瑞幸咖啡为28.4万条。
+                    </li>
+                    <li> 
+                    Peets‘s Coffee、% Arabica、Seesaw Coffee、M Stand、代数学家、LAVAZZA等连锁咖啡品牌均分较高，都达到4.3分以上。
+                    </li>
+                    </ul>
+                    
+                    <span style="font-weight: bold">推荐菜频数词云图：</span>
+                    <ul class="list1">
+                    <li>
+                    该19个城市的60975家门店共推荐261642道菜品。按每道菜品被不同门店推荐的频数计算排序（一家门店推荐该菜品计为一次），在前100位中，卡布奇诺、美式咖啡和焦糖玛奇朵为推荐频数最多的菜品。前100位中也包含了燕麦拿铁、双倍热燕麦拿铁和燕麦抹茶拿铁，由此看出燕麦奶在咖啡渠道已达到一定渗透率。
+                    </li>
+                    </ul>
+                    
+                    <span style="font-weight: bold">推荐菜指数词云图：</span>
+                    <ul class="list1">
+                    <li>
+                    按每道菜品被消费者推荐的次数排序（消费者指数），在前100位中，拿铁、澳白、Dirty为推荐指数最多的菜品。
+                    </li>
+                    </ul>
+                    
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">可视化图表及数据分析——各城市维度：</span>
+                    <br>                                    
+            </div></el-col>  
+        </el-row>    
+            
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/piecharts" width="100%" height="600"></iframe>
+            </div>
+            
+        <el-row>     
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    <i><b>图2：各城市连锁/单店门店占比饼图、价格区间占比饼图
+                    </b></i>
+                    
+                    <ul class="list1">
+                    <li>
+                    以上海为例，上海单店门店数量在全国排名第一，达到4589家，占上海总门店数近一半。
+                    </li>
+                    <li>
+                    从消费均价角度，单店均价受餐厅门店影响，有较高比例分布在60-90元之间。整体而言，16-45元为上海门店的主要均价区间。
+                    </li>
+                    </ul>                          
+            </div></el-col>  
+        </el-row>                
+                        
+                        
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/RegionRankDetailBar" width="100%" height="600"></iframe>
+            </div>
+            
+            
+        <el-row>    
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    <i><b>图3：各城市热门商圈（门店数量排名前100）门店数/均价/评论数图
+                    </b></i>
+                    <ul class="list1">
+                    <li>
+                    以上海为例，淮海路、南京西路、五角场和陆家嘴的门店数最多，均达到200家以上。
+                    </li>
+                    <li>
+                    松江均价最高达到94.8元，其次为奉贤78.2元和衡山路75.9元。
+                    </li>
+                    <li>
+                    评论数排行前三分别为淮海路、南京西路和静安寺。
+                    </li>
+                    </ul>   
+            </div></el-col>  
+        </el-row>                     
+                  
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/region_boxplot" width="100%" height="600"></iframe>
+            </div> 
+                 
+        <el-row>    
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    <i><b>图4：各城市热门商圈（门店数量排名前100）消费均价箱线图、评分箱线图
+                    </b></i>
+                    <ul class="list1">
+                    <li>
+                    通过箱线图可反映数据的中位数和散布范围，从而显示数据间离散程度、异常值等等，在此仅用均价和评分维度举例。
+                    </li>
+                    <li>
+                    以上海为例，多数商圈受餐厅/酒店等非咖啡厅商户的价格的影响，导致均价最高值超过200元。从各个箱体来看，在前10位的商圈中，淮海路、陆家嘴、徐家汇、古北和中山公园商圈的均价较高，达到中位数37元以上。虹桥、中山公园的箱体较长，说明该商圈内不同门店的价格区间相对较大。
+                    </li>
+                    <li>
+                    音乐学院、淮海路、南京西路、静安寺和中山公园等门店的星级评分较高，达到中位数4分以上。张江的评分较低且集中在3.6分至4分之间。
+                    </li>
+                    </ul>   
+            </div></el-col>  
+        </el-row>       
+        
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/citybrandrank" width="100%" height="600"></iframe>
+            
+            </div> 
+                         
+        <el-row>    
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    <i><b>图5：各城市连锁品牌门店数量排行、人均消费排行（排名前50）
+                    </b></i>
+                    <ul class="list1">
+                    <li>
+                    以上海为例，排除非咖啡厅门店，门店数最高的连锁品牌为星巴克843家（另含星巴克臻选88家）、瑞幸咖啡583家、Manner Coffee307家。
+                    </li>
+                    <li>
+                    从均价排行维度，含“咖啡”标签的餐厅门店，特别是高端西餐厅和酒店门店人均价格较高。
+                    </li>
+                    </ul>   
+            </div></el-col>  
+        </el-row>               
+        
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/BrandRankDetailBar" width="100%" height="600"></iframe>
+            </div> 
+                        
+        <el-row>    
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    <i><b>图6：各城市连锁品牌（门店数量排名前50）均价/评论数/评分图
+                    </b></i>
+                    <ul class="list1">
+                    <li>
+                    以上海为例，大型连锁咖啡连锁门店均价集中在20-40元之间。受店内餐食价格影响，上岛咖啡，伊诺咖啡和和普咖啡餐厅均价达到70元以上。
+                    </li>
+                    <li>
+                    星巴克评论数达到了27.6万条（另含星巴克臻选4.6万条），其次为Manner Coffee 7万条、瑞幸咖啡6万条。
+                    </li>
+                    <li>
+                    M Stand、LAVAZZA、Peets‘s Coffee、DOUBLE WIN、% Arabica、熊爪咖啡等都达到了均分4.3分。
+                    </li>
+                    </ul>   
+                           
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">总结：</span>
+                    
+                    <ul class="list1">
+                    <li>
+                    通过对大众点评门店源数据的分析，咖啡作为燕麦奶的传统搭配，除了咖啡厅以外，所有售卖咖啡的门店，大到快餐连锁，小到单店餐厅，均有洽谈合作的机会。
+                    </li>
+                    <li>
+                    燕麦奶品类在近几年已广泛渗透餐饮行业，以至于在推荐菜品（无论是推荐频数还是推荐指数）中都可以看到多款燕麦奶饮品。
+                    </li>
+                    <li>
+                    植物基产品在中国市场发展还需对消费者进行持续教育，不同燕麦奶品牌可以通过切入渠道的不同，打造差异化竞争。如饮品渠道的开拓不仅局限于咖啡厅，像连锁品牌排行表中出现的茶饮品牌Coco都可；烘焙品牌85度C、味多美；冰激凌品牌哈根达斯；以及快餐、便利店、超市、网红餐厅等，均为可以拓展的方向。
+                    </li>
+                    <li>
+                    在产品矩阵上，可根据热门饮品品类（推荐菜品）结合进行研发。除了饮品以外，像冰激凌、烘焙、中西式甜品、甚至拓展到高端西餐菜肴的辅料配料等，都是可以探索的方向。结合市场流行趋势研发相关配方，结合双方品牌调性与消费者讲故事。
+                    </li>
+                    <li>
+                    根据全国不同城市的市场情况，结合当地商圈和连锁品牌的影响力和契合度来布局，打造常规及差异化产品矩阵，实现销量和品牌曝光双增长。
+                    </li>
+                    </ul> 
+                    
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">编程技术应用的下一步展望：</span>
+                    
+                    <ul class="list1">
+                    <li>
+                    通过爬虫技术定时获取数据、保存至数据库（MySQL/Oracle），并生成图表、制作成数据大屏，实现自动化定时更新。
+                    </li>
+                    <li>
+                    细化分析维度，设定基准值，将城市/商圈/品牌按等级划分，定时更新等级排行。
+                    </li>
+                     <li>
+                    根据推荐菜品频数/指数将菜品排行，定时更新热门排行榜。
+                    </li>
+                    </ul> 
+                    
+            </div></el-col>  
+        </el-row>        
+       
+       
+        </el-main>
+        
+        
+        
+        <el-footer height="100px" >
+          <br>
+          与我联系
+          
+         <br><br>
+         邮箱：wzywdq@163.com  &nbsp&nbsp&nbsp&nbsp  微信：447397567       
+                  
+        </el-footer>
+    </el-container>             
+</div>  
+            
+
+
+<!--
+<button id="BTN1">笨蛋</button>
+
+<div id = "div1">
+</div> -->
+
+
+</body>
+
+<script src="https://unpkg.com/vue@2.6.3/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui@2.6.3/lib/index.js"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"> </script>
+
+<!-- 启动VUE 之后VUE相关的代码都要在app标签中写-->
+<script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+        visible: false,
+        python1:false,
+        HTML1:false,
+        django1:false,
+        vue1:false,
+        spider1:false,
+        Pandas1:false,
+        Pyecharts1:false,
+        CSS1:false,
+        JavaScript1:false,
+        
+         }
+      }
+    })
+</script>
+
+<!-- 初始化swiper-->
+<script>        
+  var mySwiper = new Swiper ('.swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay:true,
+   // effect: 'coverflow',
+   slidesPerView: "auto",
+    centeredSlides: true,
+    
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    /* 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },*/
+  })        
+</script>
+<!--
+<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById("BTN1").onclick=function(){
+        var div1Elt = document.getElementById("div1")
+        div1Elt.innerHTML='<h1 class="animate__animated animate__backInDown"> 我是笨蛋，我什么都不会，我脾气大，本事小，吃饭第一名，做事最后一名 </h1>'
+    
+        }
+    } 
+</script>-->

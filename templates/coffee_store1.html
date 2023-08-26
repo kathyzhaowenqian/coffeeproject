@@ -1,0 +1,431 @@
+
+
+<head>
+    <!-- 引入ELEMENT -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.6.3/lib/theme-chalk/index.css"/>
+    
+    
+    <!-- 引入字体过度样式 -->
+    <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+    <!-- 引入轮播图 -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">  
+   
+    <title>大众点评全国重点城市咖啡商户分析</title>
+    
+    
+    <!-- 通过CSS调整字体大小
+    <style type="text/css">
+    .WORDSTYLE {
+    			font-size: 18px;
+    			color: black;
+    			}
+    </style>
+        
+       
+        
+        
+    <style>
+        .swiper {
+        width: 1000px;
+        height: 300px;
+        }  
+    </style>
+    --> 
+    
+     <style>
+      .swiper-slide{
+      width:auto;/*根据内容调整宽度*/
+     }
+    </style>
+
+    <!-- ELEMENT页面布局模板 -->
+    <style>
+      .el-header, .el-footer {
+        background-color:#FFDAB9;
+        color: #333;
+        text-align: center;
+        line-height: 20px;
+      }
+      
+      .el-aside {
+        background-color:#D3DCE6;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+      }
+      
+      .el-main {
+        background-color:#FFFAFA;
+        color: #333;
+        text-align: left;
+        line-height: 30px;
+      }
+      
+      body > .el-container {
+        margin-bottom: 20px;
+      }
+      
+      .el-container:nth-child(5) .el-aside,
+      .el-container:nth-child(6) .el-aside {
+        line-height: 260px;
+      }
+      
+      .el-container:nth-child(7) .el-aside {
+        line-height: 320px;
+      }
+    </style>
+
+<!-- ELEMENT具体内容布局模板 -->
+    <style>
+      .el-row {
+        margin-bottom: 20px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .el-col {
+        border-radius: 4px;
+      }
+      .bg-purple-dark {
+        background: #FFFAFA
+      }
+      .bg-purple {
+        background: #d3dce6;
+      }
+      .bg-purple-light {
+        background: #e5e9f2;
+      }
+      .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+      }
+      .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+      }
+    </style>
+   
+   
+   
+</head>
+
+
+
+
+<body>
+    <!-- 根据下方script启动VUE之后，相关的代码都要在id=app的标签中写-->
+    
+  <div id="app">
+      
+    <el-container>
+    
+      <el-header height="130px">
+      <h1 style="margin-top:40px; font-size: 36px">大众点评全国重点城市咖啡商户分析</h1>
+      <br> 
+      
+      </el-header>
+      
+      
+      <el-main>       
+          <el-row>
+          <!-- 插入轮播图 -->
+          <div class="swiper">
+              <div class="swiper-wrapper">
+              
+                <div class="swiper-slide">
+                    <img src="/static/img/11.jpg"/>
+                </div>
+              
+                <div class="swiper-slide">
+                    <img src="/static/img/6.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">	
+                    <img src="/static/img/7.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">	
+                    <img src="/static/img/9.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="/static/img/5.jpg"/>
+                </div>
+                
+                <div class="swiper-slide">
+                    <img src="/static/img/10.jpg"/>
+                </div>
+                
+                 <div class="swiper-slide">
+                    <img src="/static/img/8.jpg"/>
+                </div>
+                
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+                <!-- 如果需要滚动条 
+                 <div class="swiper-scrollbar"></div>-->
+          </div>
+           </el-row>            
+         
+      
+          <el-row>
+             <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">                
+                    <span style="font-size: 20px; font-weight: bold">前言：</span>
+                    <br><br>
+                    本报告以展示编程语言对于市场调研及洞察的作用为主，所有调研成果的核心依据为数据，对于原始数据的获取具有很高价值。在获取数据之后，可通过编程语言批量清洗、分析数据，并编译成可视化图表，以提高工作效率。 
+                    <br><br>   
+                    编程语言：
+                        <el-button @click="python1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Python</el-button>
+                        <el-dialog :visible.sync="python1" title="Python（计算机编程语言）">
+                                <p class="animate__animated animate__backInDown" >Python由荷兰数学和计算机科学研究学会的吉多·范罗苏姆 于1990 年代初设计，作为一门叫做ABC语言的替代品。
+                                Python提供了高效的高级数据结构，还能简单有效地面向对象编程。
+                                <br><br>Python语法和动态类型，以及解释型语言的本质，使它成为多数平台上写脚本和快速开发应用的编程语言， 
+                                随着版本的不断更新和语言新功能的添加，逐渐被用于独立的、大型项目的开发。 
+                                Python解释器易于扩展，可以使用C语言或C++（或者其他可以通过C调用的语言）扩展新的功能和数据类型。 
+                                Python 也可用于可定制化软件中的扩展程序语言。<br><br>Python丰富的标准库，提供了适用于各个主要系统平台的源码或机器码。 
+                                2021年10月，语言流行指数的编译器Tiobe将Python加冕为最受欢迎的编程语言，20年来首次将其置于Java、C和JavaScript之上。
+                                </p>                               
+                        </el-dialog> 
+                                                
+                        
+                        
+                        <el-button @click="HTML1 = true" type="warning" round size="mini" icon="el-icon-info" plain>HTML</el-button>
+                        <el-dialog :visible.sync="HTML1" title="HMTL">
+                                <p class="animate__animated animate__backInDown" >
+                                HTML的全称为超文本标记语言，是一种标记语言。它包括一系列标签，通过这些标签可以将网络上的文档格式统一，使分散的Internet资源连接为一个逻辑整体。
+                                HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字，图形、动画、声音、表格、链接等。
+                                </p>
+                        </el-dialog> 
+                        
+                       
+                        <el-button @click="CSS1 = true" type="warning" round size="mini" icon="el-icon-info" plain>CSS</el-button>
+                        <el-dialog :visible.sync="CSS1" title="CSS(层叠样式表)">
+                                <p class="animate__animated animate__backInDown" >
+                                层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+                                </p>
+                        </el-dialog> 
+                        
+                        <el-button @click="JavaScript1 = true" type="warning" round size="mini" icon="el-icon-info" plain>JavaScript</el-button>
+                        <el-dialog :visible.sync="JavaScript1" title="JavaScript">
+                                <p class="animate__animated animate__backInDown" >
+                                JavaScript（简称“JS”） 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web页面的脚本语言而出名，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式、声明式、函数式编程范式。
+                                </p>
+                        </el-dialog> 
+                                                                       
+                    <br>
+                   
+                   
+                    Web开发框架：
+                        <el-button @click="django1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Django</el-button>
+                        <el-dialog :visible.sync="django1" title="Django（Python Web 框架）">
+                               <p class="animate__animated animate__backInDown" >
+                                Django是一个开放源代码的Web应用框架，由Python写成。采用了MTV的框架模式，即模型M，视图V和模版T。
+                                它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。并于2005年7月在BSD许可证下发布。
+                               </p>
+                        </el-dialog>
+
+                        <el-button @click="vue1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Vue</el-button>
+                        <el-dialog :visible.sync="vue1" title="Vue">
+                               <p class="animate__animated animate__backInDown" >
+                               Vue是一套用于构建用户界面的渐进式JavaScript框架，作为目前最流行的前端框架之一，是许多前端开发工程师的不二选择。与传统JS和JQuery框架不同，Vue的渐进式框架表示开发者可以由简单组件写起，渐渐搭建出一个复杂的前端平台。
+                               </p>
+                        </el-dialog>                                                        
+                    <br>
+                    
+                    
+                    数据获取方式：
+                        <el-button @click="Requests1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Requests</el-button>
+                        <el-dialog :visible.sync="Requests1" title="Requests">
+                               <p class="animate__animated animate__backInDown" >
+                               Requests是一常用的http请求库，它使用Python语言编写，可以方便地发送http请求，以及方便地处理响应结果。
+                               </p>
+                        </el-dialog>
+                    
+                    
+                    <br>
+                    
+                    数据分析调用工具库：
+                        <el-button @click="Pandas1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Pandas</el-button>
+                        <el-dialog :visible.sync="Pandas1" title="Pandas">
+                              <p class="animate__animated animate__backInDown" >
+                              Pandas 是基于NumPy 的一种工具，该工具是为解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法。你很快就会发现，它是使Python成为强大而高效的数据分析环境的重要因素之一。
+                              </p>
+                        </el-dialog>
+                    
+                                        
+                    <br>
+                    数据可视化调用工具库：
+                        <el-button @click="Pyecharts1 = true" type="warning" round size="mini" icon="el-icon-info" plain>Pyecharts</el-button>
+                        <el-dialog :visible.sync="Pyecharts1" title="Pyecharts">
+                              <p class="animate__animated animate__backInDown" >
+                                Echarts是一个由百度开源的数据可视化，凭借着良好的交互性，精巧的图表设计，得到了众多开发者的认可。
+                                而 Python 是一门富有表达力的语言，很适合用于数据处理。当数据分析遇上数据可视化时，Pyecharts 诞生了。
+                              </p>
+                        </el-dialog>                    
+                    
+                    <br><br>
+                    生成此类报告的工作可拆解为：1. 获取原始数据； 2. 数据整合、清洗和分析； 3. 可视化图表制作； 4. 分析报告撰写； 5. 网页开发。 在专业科技公司通常由多部门团队协作。
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">数据获取逻辑：</span>
+                    <br> <br>
+                    本报告引用数据均从大众点评获取，搜索关键字为“咖啡”（模糊查询），选取全国19个重点城市：上海、北京、广州、成都、深圳、杭州、苏州、重庆、南京、武汉、青岛、天津、宁波、无锡、厦门、昆明、合肥、郑州、济南。
+                    数据信息包括：城市、商户名称、消费均价、星级评分、点评数、地区、推荐菜品等等。
+                    通过“咖啡”关键字获取的商户可为咖啡厅，或者推荐菜品中包含“咖啡”的商户。为尽可能保留原始数据，获取到的除咖啡厅以外的商户，如：茶饮、快餐、餐厅等均做保留。
+                    相比大众点评上的全部商户信息，本数据完整性为95%以上。从业务层面，包含“咖啡”关键字的非咖啡厅商户会给分析报告的精确度带来一定影响，如高端餐厅会影响均价，连锁快餐厅会影响商户品牌排行。
+                    若作为公司项目，搜索关键字及数据过滤都需要做进一步细化、探讨。
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">可视化图表及数据分析——全国维度：</span>
+                    <br><br>
+                    <i>以下图表（图1）中，可切换标签查看不同维度分析与排行，滚动鼠标或拖拽滚动条可放大数据信息。</i>                
+            </div></el-col>      
+            
+         </el-row>
+                       
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/pyecharts1" width="100%" height="600"></iframe>
+            </div>
+            
+        <el-row> 
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">                           
+                    从全国的角度，19个重点城市获取商户总数为60975家，其中排名前三位的城市分别为：上海9836家、北京6740家，广州5335家。一线城市商户数远高于其他城市。从均价维度来看，19个城市的均价集中在35元至55元之间，北京均价最高达到54.4元，其次为上海、青岛，从公司售卖燕麦奶的业务层出发，考虑进燕麦奶的成本，与咖啡商户依然有很大的合作空间。从评论数量来看，上海作为商户数排名第一的城市，评论数达到了263.9万条，排名第二的北京评论数也达到了181.8万条，分别为第三名广州的三倍、两倍以上。从评分维度看，所有城市均在3.7分以上，其中北京、天津和南京的均分最高。均价、评论数、星级评分三者之间没有明显的正相关关系。从门店数量最多的一线城市开拓，无论从消费者品类接受程度，还是市场机会上，都会是很好的开端。
+                    <br><br>
+                    从商户品牌的维度，连锁店瑞幸咖啡在近几年内迅速扩张，门店数位居第一达到3648家，比排名第二的星巴克（3163家）高出近500家。排除非咖啡厅品牌，位居前列的还有NOWWA挪瓦咖啡952家，Tims咖啡423家和Manner Coffee 416家。从门店数排行前列的商户中看出，上岛咖啡、岸香咖啡、两岸咖啡和栖巢咖啡的均价都达到75元以上。老牌连锁星巴克的评价数达到了767017条，第二名瑞幸咖啡为284546条。Peets‘s Coffee、% Arabica、Seesaw Coffee、M Stand、代数学家、LAVAZZA等连锁咖啡品牌均分较高，都达到4.3分以上。从词云图中看出，卡布奇诺、美式咖啡和焦糖玛奇朵为推荐次数最多的菜品，从众多菜品中也可以看到燕麦拿铁、双倍热燕麦拿铁和燕麦抹茶拿铁，由此看出燕麦奶在咖啡渠道已达到一定的渗透率。
+                    <br><br>
+                    如上文中提到，一些包含“咖啡”关键字的非咖啡厅商户也被获取，从商户品牌排行中也可看出有非咖啡厅商户上榜。从公司业务层角度，推广燕麦奶除了可以与传统咖啡商户合作以外，同样售卖饮品的连锁快餐、茶饮、烘焙商户以及一些网红餐厅也是可以拓展的方向。除了饮品品类以外，像冰激凌、烘焙甜品等产品品类也是可以研发的方向。结合流行趋势研发相关配方，结合双方品牌调性与消费者讲故事。
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">可视化图表及数据分析——各城市维度：</span>
+                    <br><br>
+                    <i>以下图表（图2）中，可切换城市标签查看各城市分析，滚动鼠标或拖拽滚动条可放大数据信息。</i>
+                    <br><br>                
+            </div></el-col>  
+        </el-row>    
+            
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/pyecharts2" width="100%" height="600"></iframe>
+            </div>
+            
+        <el-row>     
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    从各个城市的角度，以上图表分别描述了连锁/单店商户占比、价格区间占比、各商圈评分和消费均价。以上海为例，上海单店商户数量在全国排名第一，达到4589家，占上海总门店数近一半。从消费均价角度，单店均价受餐厅商户影响有较高比例分布在60-90元之间。整体而言，16-45元为上海商户的主要均价区间。评分箱和均价箱线图的横坐标均按商圈商户数量排序，其中淮海路、南京西路和五角场的商户数最多（也可见下方图3）。在商户数排名靠前的商圈中，音乐学院、淮海路、南京西路、静安寺和中山公园等商户的星级评分较高，达到中位数4分以上。淮海路、陆家嘴、徐家汇、古北和中山公园等商户的均价较高，达到中位数37元以上。在热门商圈布局或许可以更有效地提高品牌知名度。
+                    <br><br>
+                    <i>以下图表（图3）中，可切换城市标签查看各城市分析，滚动鼠标或拖拽滚动条可放大数据信息。 </i>      
+            </div></el-col>  
+        </el-row>                
+                        
+            <div>
+                <iframe frameborder=0 src="./coffee_store_analysis/pyecharts3" width="100%" height="600"></iframe>
+            </div>
+            
+            
+        <el-row>    
+            <el-col :span="22" :offset="1"><div class="grid-content bg-purple-dark">
+                    纵观各城市品牌连锁门店排行，以上海为例，星巴克、瑞幸咖啡、Manner Coffee为连锁咖啡商户品牌门店数排名前三位，同样也是评价总数量排行的前三位。 从均价排行中可以看出，含“咖啡”标签的餐厅商户，特别是高端西餐厅和酒店商户人均价格较高，燕麦奶对于此类商户有较高的应用空间，无论作为饮品、甜品、或是菜肴的辅料配料，都可以有发挥的余地。 
+                    <br><br>
+                    <span style="font-size: 20px; font-weight: bold">总结：</span>
+                    <br><br>
+                    通过对大众点评商户源数据的分析，咖啡作为燕麦奶的传统搭配，除了传统咖啡厅以外，所有售卖咖啡的商户，大到快餐连锁，小到单店餐厅，均有洽谈合作的机会。市占率最高的竞品燕麦奶品牌在近几年已广泛开拓市场，以至于在推荐菜品中也可以看到多款燕麦奶饮品。植物基产品在中国市的还需对消费者的持续教育，不同燕麦奶品牌可以通过切入渠道的不同，打造差异化竞争。如饮品渠道的开拓不仅局限于咖啡，像连锁品牌排行中出现的茶饮连锁Coco都可，烘焙连锁85度C、味多美，冰激凌连锁哈根达斯，以及快餐、便利店、超市等，均有合作的空间。以起量的角度，从二线咖啡连锁品牌开拓，同时布局茶饮连锁和烘焙连锁，兴许也是燕麦奶新品牌开打市场的机会。
+                    <br><br>
+             
+            </div></el-col>  
+       </el-row>           
+                  
+        </el-main>
+        
+        
+        
+        <el-footer height="100px" >
+        <br>
+          与我联系
+          
+         <br><br>
+               
+                  
+        </el-footer>
+    </el-container>             
+</div>  
+            
+
+
+<!--
+<button id="BTN1">笨蛋</button>
+
+<div id = "div1">
+</div> -->
+
+
+</body>
+
+<script src="https://unpkg.com/vue@2.6.3/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui@2.6.3/lib/index.js"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"> </script>
+
+<!-- 启动VUE 之后VUE相关的代码都要在app标签中写-->
+<script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+        visible: false,
+        python1:false,
+        HTML1:false,
+        django1:false,
+        vue1:false,
+        Requests1:false,
+        Pandas1:false,
+        Pyecharts1:false,
+        CSS1:false,
+        JavaScript1:false,
+        
+         }
+      }
+    })
+</script>
+
+<!-- 初始化swiper-->
+<script>        
+  var mySwiper = new Swiper ('.swiper', {
+    direction: 'horizontal', // 垂直切换选项
+    loop: true, // 循环模式选项
+    autoplay:true,
+   // effect: 'coverflow',
+   slidesPerView: "auto",
+    centeredSlides: true,
+    
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    /* 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },*/
+  })        
+</script>
+<!--
+<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById("BTN1").onclick=function(){
+        var div1Elt = document.getElementById("div1")
+        div1Elt.innerHTML='<h1 class="animate__animated animate__backInDown"> 我是笨蛋，我什么都不会，我脾气大，本事小，吃饭第一名，做事最后一名 </h1>'
+    
+        }
+    } 
+</script>-->
